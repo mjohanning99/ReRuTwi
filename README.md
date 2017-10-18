@@ -9,7 +9,7 @@ Firstly, you will need to install [Shoes4](https://github.com/shoes/shoes4) as t
 You will also need to install the [twitter](https://github.com/sferik/twitter) gem.
 
 ### Logging in
-Logging in currently still has to be done by entering your Twitter API tokens into the first few lines of the .rb file. For information as to how to do that, please refer to [twitter#configuration](https://github.com/sferik/twitter#configuration). 
+Logging in currently still has to be done by entering your Twitter API tokens into the first few lines of the .rb file. For information as to how to do that, please refer to [twitter#configuration](https://github.com/sferik/twitter#configuration).
 Afterwards, you will be able to run ReRuTwi.
 
 ## What can I do?

@@ -3,18 +3,20 @@ require 'twitter'
 #require 'lib/auth.rb'
 
 $client = Twitter::REST::Client.new do |config|
-  config.consumer_key        = ""
-  config.consumer_secret     = ""
-  config.access_token        = ""
-  config.access_token_secret = ""
+  config.consumer_key        = "HWR1tCHkc0rbyYqzQB4sCQc9x"
+  config.consumer_secret     = "05kftUArNyeHsAHGqrrtwrgJ4sqPVWJmqHroyx4VrQg8lxVVEn"
+  config.access_token        = "438658273-mVz3KP9ODjtnss5Hhat3t2St35kgbOBJNGSBKBSO"
+  config.access_token_secret = "yx1zIW9mQOvUOgHg0KN8pHQThe5umrrmCUjQIdMZBGVhU"
 end
+
 
 class ReRuTwi < Shoes
   url "/", :homescreen
   url "/post", :postscreen
   url "/help", :helpscreen
   url "/view", :viewscreen
-  #url "/viewperson", :viewperson
+  url "/search", :searchscreen
+  url "/viewperson", :viewperson
 
   def homescreen
     background aliceblue
@@ -23,6 +25,7 @@ class ReRuTwi < Shoes
       button "Exit", margin: 5, :right => 5 do exit() end
       button "View", margin: 5 do visit "/view" end
       button "Post", margin: 5 do visit "/post" end
+      button "Search", margin: 5 do visit "/search" end
     end
 
     stack margin: 10 do
@@ -47,6 +50,7 @@ class ReRuTwi < Shoes
       button "Exit", margin: 5, :right => 5 do exit() end
       button "Home", margin: 5 do visit "/" end
       button "Post", margin: 5 do visit "/post" end
+      button "Search", margin: 5 do visit "/search" end
     end
 
     flow margin: 10 do
@@ -69,9 +73,56 @@ class ReRuTwi < Shoes
     end
   end
 
-  #def viewperson
-  #
-  #end
+  def searchscreen
+    background aliceblue
+    flow margin: 10 do
+      background lightcoral
+      button "Exit", margin: 5, :right => 5 do exit() end
+      button "Home", margin: 5 do visit "/" end
+      button "Post", margin: 5 do visit "/post" end
+      button "View", margin: 5 do visit "/view" end
+    end
+
+    stack margin: 10 do
+      background deepskyblue
+      tagline "Search"
+    end
+
+    stack margin: 10 do
+      background deepskyblue
+      @search = edit_line "Enter search term here"
+      @snumber = edit_line "Enter numbers of tweets"
+
+      button "Search" do
+        $client.search("#{@search.text}").take(@snumber.text.to_i).collect do |tweet|
+          para "#{tweet.user.screen_name}: #{tweet.text}\n"
+          para link("#{tweet.user.screen_name}\n", click: proc { |btn, left, top|
+            $person = tweet.user.screen_name
+            visit "/viewperson"
+          })
+        end
+      end
+    end
+  end
+
+  def viewperson
+    background aliceblue
+    flow margin: 10 do
+      background lightcoral
+      button "Exit", margin: 5, :right => 5 do exit() end
+      button "Home", margin: 5 do visit "/" end
+      button "Post", margin: 5 do visit "/post" end
+      button "Search", margin: 5 do visit "/search" end
+    end
+
+    flow margin: 10 do
+      background deepskyblue
+      tagline "View posts by #{$person}\n\n"
+      $client.user_timeline($person).each do |tweet|
+        para tweet.text + "\n"
+      end
+    end
+  end
 
   def postscreen
     background aliceblue
@@ -97,4 +148,4 @@ class ReRuTwi < Shoes
   end
 end
 
-Shoes.app :width => 600
+Shoes.app :width => 800, :height => 500
