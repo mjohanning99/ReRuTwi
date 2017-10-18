@@ -17,7 +17,7 @@ class ReRuTwi < Shoes
   #url "/viewperson", :viewperson
 
   def homescreen
-    background cornsilk
+    background aliceblue
     flow margin: 10 do
       background lightcoral
       button "Exit", margin: 5, :right => 5 do exit() end
@@ -41,7 +41,7 @@ class ReRuTwi < Shoes
   end
 
   def viewscreen
-    background cornsilk
+    background aliceblue
     flow margin: 10 do
       background lightcoral
       button "Exit", margin: 5, :right => 5 do exit() end
@@ -74,7 +74,7 @@ class ReRuTwi < Shoes
   #end
 
   def postscreen
-    background cornsilk
+    background aliceblue
     flow margin: 10 do
       background lightcoral
       button "Exit", margin: 5, :right => 5 do exit() end
