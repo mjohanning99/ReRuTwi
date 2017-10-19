@@ -13,32 +13,32 @@ def viewscreen
     @user_name = edit_line "Enter username here"
   end
 
-    stack margin: 10 do
-      background $settings["colour"]["info_box"]
-      button "View posts" do
-        tagline "@#{@user_name.text}\n"
-        if $client.friendship?($client.user, @user_name.text) then
-          button "Unfollow\n" do
-            $client.unfollow(@user_name.text)
-          end
-        else
-          button "Follow\n" do
-            $client.follow(@user_name.text)
-          end
+  stack margin: 10 do
+    background $settings["colour"]["info_box"]
+    button "View posts" do
+      tagline "@#{@user_name.text}\n"
+      if $client.friendship?($client.user, @user_name.text) then
+        button "Unfollow\n" do
+          $client.unfollow(@user_name.text)
         end
-        para $client.user(@user_name.text).description
-        para "#{$client.user(@user_name.text).followers_count} Followers"
-
-        stack margin: 10 do
-          background $settings["colour"]["output"]
-          if @user_name.text.include?(" ") == false then
-             $client.user_timeline(@user_name.text).each do |tweet|
-              para tweet.full_text + "\n"
-            end
-          else
-            para "ERROR! Username cannot contain a space"
-          end
+      else
+        button "Follow\n" do
+          $client.follow(@user_name.text)
         end
       end
-   end
+      para $client.user(@user_name.text).description
+      para "#{$client.user(@user_name.text).followers_count} Followers"
+
+      stack margin: 10 do
+        background $settings["colour"]["output"]
+        if @user_name.text.include?(" ") == false then
+            $client.user_timeline(@user_name.text).each do |tweet|
+            para tweet.full_text + "\n"
+          end
+        else
+          para "ERROR! Username cannot contain a space"
+        end
+      end
+    end
+  end
 end
