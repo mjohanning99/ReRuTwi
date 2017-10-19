@@ -16,13 +16,13 @@ def homescreen
 
   stack margin: 10 do
     background $settings["colour"]["output"]
-    tagline "Latest tweets\n\n"
+    tagline "Latest tweets\n"
     $client.home_timeline.take(10).collect do |tweet|
-      para link("#{tweet.user.screen_name}: ", undercolor: red, click: proc { |btn|
+      para link("#{tweet.user.screen_name}: ", undercolor: red, background: lightcoral, click: proc { |btn|
         $person = tweet.user.screen_name
         visit "/viewperson"
       })
-      para "#{tweet.full_text}"
+      para "#{tweet.full_text}\n"
     end
   end
 end

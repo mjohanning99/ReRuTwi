@@ -27,7 +27,7 @@ def searchscreen
           $person = tweet.user.screen_name
           visit "/viewperson"
         })
-        para "  #{tweet.full_text}\n"
+        para "#{tweet.full_text}\n"
       end
     end
   end
