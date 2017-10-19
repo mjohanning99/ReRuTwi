@@ -9,12 +9,12 @@ def postscreen
   end
 
   stack margin: 10 do
-    background deepskyblue
+    background $settings["colour"]["info_box"]
     tagline "Post a tweet"
   end
 
   stack margin: 10 do
-    background deepskyblue
+    background $settings["colour"]["output"]
     @tweet = edit_box ""
     size   = para "Tweet size: 0"
     button "Post" do

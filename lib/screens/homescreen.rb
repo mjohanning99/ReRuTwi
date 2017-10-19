@@ -9,20 +9,20 @@ def homescreen
   end
 
   stack margin: 10 do
-    background deepskyblue
+    background $settings["colour"]["info_box"]
     subtitle "ReRuTwi"
     tagline "Twitter App written in Ruby"
   end
 
   stack margin: 10 do
-    background skyblue
+    background $settings["colour"]["output"]
     tagline "Latest tweets\n\n"
     $client.home_timeline.take(10).collect do |tweet|
       para link("#{tweet.user.screen_name}: ", undercolor: red, click: proc { |btn|
         $person = tweet.user.screen_name
         visit "/viewperson"
       })
-      para "  #{tweet.full_text}\n"
+      para "#{tweet.full_text}"
     end
   end
 end

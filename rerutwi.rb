@@ -19,10 +19,11 @@ $settings = YAML.load_file "./lib/settings.yml"
 class ReRuTwi < Shoes
   url "/", :homescreen
   url "/post", :postscreen
-  url "/help", :helpscreen
   url "/view", :viewscreen
   url "/search", :searchscreen
   url "/viewperson", :viewperson
+  #url "/settings", :settings
+  #url "/help", :help
 end
 
-Shoes.app :width => 800, :height => 500
+Shoes.app :width => $settings["dimensions"]["width"], :height => $settings["dimensions"]["height"]

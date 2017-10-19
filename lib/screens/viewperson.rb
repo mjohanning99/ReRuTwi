@@ -1,12 +1,12 @@
 def viewperson
-  $settings["colour"]["background"]
+  background $settings["colour"]["background"]
   flow margin: 10 do
-    $settings["colour"]["menu"]
+    background $settings["colour"]["menu"]
     button "Go back", margin: 5, :right => 5 do visit "/" end
   end
 
   stack margin: 10 do
-    background white
+    background $settings["colour"]["info_box"]
     tagline "View posts by @#{$person}\n"
     if $client.friendship?($client.user, $person) then
       button "Unfollow" do
@@ -19,11 +19,11 @@ def viewperson
     end
     para $client.user($person).description
     para "#{$client.user($person).followers_count} Followers"
-    #TODO =># Block and check if already blocked
+    #TODO => Block and check if already blocked
   end
 
   flow margin: 10 do
-    background white
+    background $settings["colour"]["output"]
     stack margin: 10 do
       $client.user_timeline($person).take(10).collect do |tweet|
         para tweet.full_text + "\n"
