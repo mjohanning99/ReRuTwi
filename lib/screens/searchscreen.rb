@@ -15,7 +15,7 @@ def searchscreen
 
   stack margin: 10 do
     background deepskyblue
-    @search = edit_line "Enter search term here"
+    @search = edit_line "#"
     @snumber = edit_line "Enter numbers of tweets"
   end
 

@@ -19,7 +19,7 @@ def viewperson
     end
     para $client.user($person).description
     para "#{$client.user($person).followers_count} Followers"
-    #TODO => Follow and check if already followed, block and check if already blocked
+    #TODO =># Block and check if already blocked
   end
 
   flow margin: 10 do

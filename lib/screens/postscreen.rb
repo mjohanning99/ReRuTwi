@@ -15,8 +15,12 @@ def postscreen
   stack margin: 10 do
     background deepskyblue
     @tweet = edit_box ""
+    size   = para "Tweet size: 0"
     button "Post" do
       $client.update @tweet.text
+    end
+    button "Check tweet size" do
+      size.replace "Tweet size: #{@tweet.text.size}"
     end
   end
 end
