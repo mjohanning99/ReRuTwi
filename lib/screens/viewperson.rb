@@ -1,7 +1,7 @@
 def viewperson
-  background aliceblue
+  $settings["colour"]["background"]
   flow margin: 10 do
-    background lightcoral
+    $settings["colour"]["menu"]
     button "Go back", margin: 5, :right => 5 do visit "/" end
   end
 

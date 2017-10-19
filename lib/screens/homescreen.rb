@@ -1,7 +1,7 @@
 def homescreen
-  background aliceblue
+  $settings["colour"]["background"]
   flow margin: 10 do
-    background lightcoral
+    background $settings["colour"]["menu"]
     button "Exit", margin: 5, :right => 5 do exit() end
     button "View", margin: 5 do visit "/view" end
     button "Post", margin: 5 do visit "/post" end

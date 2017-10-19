@@ -1,5 +1,5 @@
 def viewscreen
-  background aliceblue
+  $settings["colour"]["background"]
   flow margin: 10 do
     background lightcoral
     button "Exit", margin: 5, :right => 5 do exit() end

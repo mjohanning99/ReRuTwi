@@ -1,14 +1,20 @@
 #Gems needed
 require 'shoes'
 require 'twitter'
+require 'yaml'
 
-#Screens and other files
+#Screens
 require_relative 'lib/screens/homescreen.rb'
 require_relative 'lib/screens/viewscreen.rb'
 require_relative 'lib/screens/searchscreen.rb'
 require_relative 'lib/screens/viewperson.rb'
 require_relative 'lib/screens/postscreen.rb'
+
+#Authentication
 require_relative 'lib/auth.rb'
+
+#Settings
+$settings = YAML.load_file "./lib/settings.yml"
 
 class ReRuTwi < Shoes
   url "/", :homescreen
