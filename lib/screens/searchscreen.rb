@@ -22,7 +22,7 @@ def searchscreen
   stack margin: 10 do
     button "Search" do
       $client.search("#{@search.text}").take(@snumber.text.to_i).collect do |tweet|
-        para link("#{tweet.user.screen_name}: \n", undercolor: red, click: proc { |btn, left, top|
+        para link("#{tweet.user.screen_name}: \n", undercolor: red, click: proc { |btn|
           $person = tweet.user.screen_name
           visit "/viewperson"
         })

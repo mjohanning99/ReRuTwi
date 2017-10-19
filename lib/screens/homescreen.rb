@@ -18,7 +18,7 @@ def homescreen
     background skyblue
     tagline "Latest tweets\n\n"
     $client.home_timeline.take(10).collect do |tweet|
-      para link("#{tweet.user.screen_name}: ", undercolor: red, click: proc { |btn, left, top|
+      para link("#{tweet.user.screen_name}: ", undercolor: red, click: proc { |btn|
         $person = tweet.user.screen_name
         visit "/viewperson"
       })

@@ -8,8 +8,18 @@ def viewperson
   stack margin: 10 do
     background white
     tagline "View posts by @#{$person}\n"
+    if $client.friendship?($client.user, $person) then
+      button "Unfollow" do
+        $client.unfollow($person)
+      end
+    else
+      button "Follow" do
+        $client.follow($person)
+      end
+    end
     para $client.user($person).description
     para "#{$client.user($person).followers_count} Followers"
+    #TODO => Follow and check if already followed, block and check if already blocked
   end
 
   flow margin: 10 do

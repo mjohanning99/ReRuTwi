@@ -16,7 +16,7 @@ def postscreen
     background deepskyblue
     @tweet = edit_box ""
     button "Post" do
-      $client.update @tweet.full_text
+      $client.update @tweet.text
     end
   end
 end
