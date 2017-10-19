@@ -13,7 +13,7 @@ Logging in currently still has to be done by entering your Twitter API tokens in
 Afterwards, you will be able to run ReRuTwi.
 
 ## What can I do?
-This program is still in a very early development phase, but you are currently able to view your timeline, view someone else's timeline or post something. Features such as searching, following (perhaps streaming a specific hashtag) will be added in the future
+This program is still in a very early development phase, but you are currently able to view your timeline, view someone else's timeline or post something. A simple search function has also been added and you can now click on a person's Twitter handle to see their profile (their most recent posts, follower count, description). The search function will be more advanced in the future and other features will also be added, such as (un)following, blocking, retweeting and so forth.
 
 ## TODO
 There is still a lot to do with this project until it's even remotely usable for most people. The UI needs to be improved, more functionality should be added, easier logging in and so on.
