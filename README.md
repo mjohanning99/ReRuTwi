@@ -10,8 +10,10 @@ You will also need to install the [twitter](https://github.com/sferik/twitter) g
 I might be adding executeables in the future.
 
 ### Logging in
-Logging in currently still has to be done by entering your Twitter API tokens into the first few lines of the .rb file. For information as to how to do that, please refer to [twitter#configuration](https://github.com/sferik/twitter#configuration).
-Afterwards, you will be able to run ReRuTwi.
+Logging in currently still has to be done by entering your Twitter API tokens into the access_token fields in the auth.rb file located inside the lib directory. For information as to how to do that, please refer to [twitter#configuration](https://github.com/sferik/twitter#configuration). Afterwards, you will be able to run ReRuTwi. In the future a simple login screen will be added.
+
+### Settings
+You can change how the program behaves by editing the settings.yml file inside the lib folder. At present there aren't many things you can change, but this will be expanded upon in future releases of this software.
 
 ## What is this program capable of?
 This program is still in a very early development phase, but you are currently able to view your timeline, view someone else's timeline or post something. A simple search function has also been added and you can now click on a person's Twitter handle to see their profile (their most recent posts, follower count, description). The search function will be more advanced in the future and other features will also be added, such as (unblocking) a certain user, following someone, replying to a tweet, retweeting a tweet and so forth.
