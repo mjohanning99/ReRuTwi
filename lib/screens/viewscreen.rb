@@ -26,6 +26,16 @@ def viewscreen
           $client.follow(@user_name.text)
         end
       end
+
+      if $client.block?(@user_name.text) then
+        button "Unblock" do
+          $client.unblock(@user_name.text)
+        end
+      else
+        button "Block" do
+          $client.block(@user_name.text)
+        end
+      end
       para $client.user(@user_name.text).description
       para "#{$client.user(@user_name.text).followers_count} Followers"
 

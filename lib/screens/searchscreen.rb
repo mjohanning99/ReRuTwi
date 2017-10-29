@@ -23,10 +23,18 @@ def searchscreen
     background $settings["colour"]["output"]
     button "Search" do
       $client.search("#{@search.text}").take(@snumber.text.to_i).collect do |tweet|
-        para link("#{tweet.user.screen_name}: \n", undercolor: red, click: proc { |btn|
+        para link("#{tweet.user.screen_name}: ", undercolor: red, click: proc { |btn|
           $person = tweet.user.screen_name
           visit "/viewperson"
         })
+        para link("Retweetn\n"), click: proc { |btn|
+          begin
+            $client.retweet!(tweet)
+            para "Tweet has been retweeted"
+          rescue
+            para "Tweet has already been retweeted"
+          end
+        }
         para "#{tweet.full_text}\n"
       end
     end

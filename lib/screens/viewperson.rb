@@ -17,6 +17,17 @@ def viewperson
         $client.follow($person)
       end
     end
+
+    if $client.block?($person) then
+      button "Unblock" do
+        $client.unblock($person)
+      end
+    else
+      button "Block" do
+        $client.block($person)
+      end
+    end
+
     para $client.user($person).description
     para "#{$client.user($person).followers_count} Followers"
     #TODO => Block and check if already blocked
