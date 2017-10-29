@@ -22,6 +22,14 @@ def homescreen
         $person = tweet.user.screen_name
         visit "/viewperson"
       })
+      para link("Retweet"), click: proc { |btn|
+        begin
+          $client.retweet!(tweet)
+          para "Tweet has been retweeted"
+        rescue
+          para "Tweet has already been retweeted"
+        end
+      }
       para "#{tweet.full_text}\n"
     end
   end
